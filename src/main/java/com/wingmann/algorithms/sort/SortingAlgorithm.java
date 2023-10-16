@@ -10,5 +10,13 @@ public interface SortingAlgorithm {
      * @param data the array should be sorted.
      * @return the sorted array.
      */
+    <T extends Comparable<T>> T[] sort(T[] data, SortingType type);
+
+    /**
+     * Basic array sorting method.
+     *
+     * @param data the array should be sorted.
+     * @return the sorted array.
+     */
     <T extends Comparable<T>> T[] sort(T[] data);
 }

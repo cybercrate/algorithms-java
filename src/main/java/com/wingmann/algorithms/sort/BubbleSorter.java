@@ -5,18 +5,22 @@ public class BubbleSorter implements SortingAlgorithm {
      * Implements generic bubble sort algorithm.
      *
      * @param data the array to be sorted.
-     * @param <T> the type of array elements.
+     * @param <T>  the type of array elements.
      * @return the sorted array.
      */
     @Override
-    public <T extends Comparable<T>> T[] sort(T[] data) {
-        int length = data.length - 1;
+    public <T extends Comparable<T>> T[] sort(T[] data, SortingType type) {
+        var length = data.length - 1;
+        boolean swapped;
+        int compared;
 
         for (var i = 0; i <= length; ++i) {
-            boolean swapped = false;
+            swapped = false;
 
-            for (var j = 1; j <= length; j++) {
-                if (data[j].compareTo(data[j - 1]) < 0) {
+            for (var j = 1; j <= length; ++j) {
+                compared = data[j].compareTo(data[j - 1]);
+
+                if ((type == SortingType.INCREASING) ? (compared < 0) : (compared > 0)) {
                     swapped = true;
 
                     var temp = data[j];
@@ -29,7 +33,11 @@ public class BubbleSorter implements SortingAlgorithm {
                 break;
             }
         }
-
         return data;
+    }
+
+    @Override
+    public <T extends Comparable<T>> T[] sort(T[] data) {
+        return sort(data, SortingType.INCREASING);
     }
 }
