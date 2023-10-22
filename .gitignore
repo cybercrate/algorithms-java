@@ -1,7 +1,8 @@
 .gradle
 .idea
 **/build/
-!src/**/build/
+!algorithms/src/**/build/
+!datastructures/src/**/build/
 
 # Ignore Gradle GUI config
 gradle-app.setting
