@@ -27,8 +27,8 @@ public class BinarySearcher implements SearchAlgorithm {
         }
 
         // Find median.
-        var median = (left + right) >>> 1;
-        var compared = key.compareTo(data[median]);
+        int median = (left + right) >>> 1;
+        int compared = key.compareTo(data[median]);
 
         if (compared == 0) {
             return median;

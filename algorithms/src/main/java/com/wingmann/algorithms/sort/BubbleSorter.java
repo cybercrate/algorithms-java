@@ -10,11 +10,11 @@ public class BubbleSorter implements SortingAlgorithm {
      */
     @Override
     public <T extends Comparable<T>> T[] sort(T[] data, SortingType type) {
-        var length = data.length - 1;
-        boolean swapped;
+        int length = data.length - 1;
         int compared;
+        boolean swapped;
 
-        for (var i = 0; i <= length; ++i) {
+        for (int i = 0; i <= length; ++i) {
             swapped = false;
 
             for (var j = 1; j <= length; ++j) {
@@ -23,7 +23,7 @@ public class BubbleSorter implements SortingAlgorithm {
                 if ((type == SortingType.INCREASING) ? (compared < 0) : (compared > 0)) {
                     swapped = true;
 
-                    var temp = data[j];
+                    T temp = data[j];
                     data[j] = data[j - 1];
                     data[j - 1] = temp;
                 }
