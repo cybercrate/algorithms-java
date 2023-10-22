@@ -1,0 +1,33 @@
+plugins {
+    id 'java-library'
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    implementation 'com.google.guava:guava:32.1.1-jre'
+}
+
+shadowJar {
+    archiveBaseName.set('data-structures')
+    archiveVersion.set('1.0-SNAPSHOT')
+    archiveClassifier.set('')
+}
+
+tasks.build.dependsOn tasks.shadowJar
+
+test {
+    useJUnitPlatform()
+}
