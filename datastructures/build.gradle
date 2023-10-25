@@ -22,7 +22,7 @@ dependencies {
     implementation 'com.google.guava:guava:32.1.1-jre'
 }
 
-tasks.jar {
+jar {
     def dependencies = configurations
             .runtimeClasspath
             .collect { zipTree(it) }
